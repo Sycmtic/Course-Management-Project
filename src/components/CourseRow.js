@@ -9,11 +9,17 @@ class CourseRow extends Component {
     render() {
         return (
             <tr>
-                <td>
+                <td style={{width: "50%"}}>
                     <i className="fas fa-file-alt" style={{paddingRight: "10px", color:"#4285f4"}}></i>
                     <Link to={`/course/${this.props.course.id}`}>
                         {this.props.course.title}
                     </Link>
+                </td>
+                <td>
+                    <p>me</p>
+                </td>
+                <td>
+                    <p>{this.props.course.modified}</p>
                 </td>
                 <td>
                     <button className="btn btn-outline-danger my-2 my-sm-0" style={{border: "none", float:"right"}} onClick={() => {

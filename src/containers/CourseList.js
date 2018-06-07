@@ -12,7 +12,10 @@ class CourseList extends Component {
         this.createCourse = this.createCourse.bind(this);
         this.deleteCourse = this.deleteCourse.bind(this);
         this.state = {
-            course: {tittle: ''},
+            course: {
+                tittle: '',
+                owner: 'me',
+            },
             courses: []
         };
     }
@@ -77,18 +80,20 @@ class CourseList extends Component {
                         <i className="fas fa-plus-circle fa-2x" onClick={this.createCourse}></i>
                     </form>
                 </nav>
+                <div style={{backgroundColor: "white"}} className="container">
                 <table className="table">
                     <thead>
                     <tr>
-                        <th>Title
-                        </th>
+                        <th style={{width: "50%"}}>Title</th>
+                        <th>Owned by</th>
+                        <th>Last modified by me</th>
                     </tr>
                     </thead>
                     <tbody>
                         {this.renderCourseRows()}
                     </tbody>
                 </table>
-
+                </div>
             </div>
         )
     }
