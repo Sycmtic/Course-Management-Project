@@ -1,0 +1,23 @@
+#titleFld {
+    background-color: rgba(255,255,255,0.16);
+    border: none;
+    align-items: center;
+}
+
+#custom-nav {
+    background-color: #4285f4;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+.navbar-brand {
+    position: absolute;
+    padding: 80px;
+}
+
+.fa-plus-circle {
+    color: red;
+    padding-left: 20px;
+}

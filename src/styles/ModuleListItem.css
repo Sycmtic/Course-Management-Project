@@ -1,0 +1,29 @@
+.delete-module {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.4;
+    filter: alpha(opacity=20);
+    text-decoration: none;
+    display:inline;
+}
+
+.delete-module:hover {
+    display:inline;
+    color: #000000;
+    text-decoration: none;
+    opacity: 0.8;
+    filter: alpha(opacity=40);
+    cursor: pointer;
+}
+
+.nav-link {
+
+}
+
+.nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
