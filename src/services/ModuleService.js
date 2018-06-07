@@ -1,6 +1,6 @@
-const MODULE_API_URL = '/api/course/CID/module';
-const MODULE_DEL_URL = '/api/module/MID';
-const MODULE_URL = '/api/module';
+const MODULE_API_URL = 'https://webdev-summer1-2018-1.herokuapp.com/api/course/CID/module';
+const MODULE_DEL_URL = 'https://webdev-summer1-2018-1.herokuapp.com/api/module/MID';
+const MODULE_URL = 'https://webdev-summer1-2018-1.herokuapp.com/api/module';
 
 let _singleton = Symbol();
 class ModuleService {
