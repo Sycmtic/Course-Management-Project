@@ -26,7 +26,6 @@ class LessonTabs extends Component {
     }
 
     componentWillReceiveProps(newProps){
-        console.log(newProps.courseId);
         this.setModuleId(newProps.moduleId);
         this.setCourseId(newProps.courseId);
         this.findAllLessonsForModule(newProps.courseId, newProps.moduleId);

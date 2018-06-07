@@ -23,7 +23,6 @@ class ModuleList extends Component {
     }
 
     componentWillReceiveProps(newProps){
-        console.log(newProps.courseId);
         this.setCourseId(newProps.courseId);
         this.findAllModulesForCourse(newProps.courseId);
     }
