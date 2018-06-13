@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LessonTabs from "./LessonTabs";
+import LessonEditor from './LessonEditor';
 import ModuleService from '../services/ModuleService';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class ModuleEditor extends Component {
     constructor(props) {
@@ -37,7 +39,16 @@ class ModuleEditor extends Component {
         return (
             <div>
                 <h1>{this.state.title}</h1>
-                <LessonTabs courseId={this.props.match.params.courseId} moduleId={this.props.match.params.moduleId}/>
+                <div>
+                    <LessonTabs courseId={this.props.match.params.courseId} moduleId={this.props.match.params.moduleId}/>
+                </div>
+                <div>
+                    <Switch>
+                        <Route path="/course/:courseId/module/:moduleId/lesson/:lessonId"
+                               component={LessonEditor}>
+                        </Route>
+                    </Switch>
+                </div>
             </div>
         )
     }

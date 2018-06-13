@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LessonServiceClient from "../services/LessonServiceClient";
-import '../styles/LessonTabs.css';
+import LessonTabsItem from '../components/LessonTabsItem';
 
 class LessonTabs extends Component {
     constructor(props) {
@@ -65,12 +65,7 @@ class LessonTabs extends Component {
     }
     renderListOfLessons() {
         let lessons = this.state.lessons.map((lesson) =>
-            <li className="nav-item" key={lesson.id}>
-                <a className="nav-link active" href="#">{lesson.title}
-                    <span className="delete-lesson" onClick={() => this.deleteLesson(lesson.id)}>X</span>
-                </a>
-
-            </li>
+            <LessonTabsItem courseId={this.state.courseId} moduleId={this.state.moduleId} lesson={lesson} key={lesson.id} delete={this.deleteLesson}/>
         );
         return lessons;
     }

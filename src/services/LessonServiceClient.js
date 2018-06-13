@@ -33,6 +33,11 @@ class LessonServiceClient {
             .then(response => response.json());
     }
 
+    findLessonById(lessonId) {
+        return fetch(`${LESSON_URL}/${lessonId}`)
+            .then(response => response.json());
+    }
+
     findAllLessonsForModule(courseId, moduleId) {
         return fetch(LESSON_API_URL.replace('CID', courseId).replace('MID', moduleId))
             .then(response => response.json());

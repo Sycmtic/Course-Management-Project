@@ -5,6 +5,7 @@ import ModuleEditor from "./ModuleEditor";
 import CourseService from '../services/CourseService';
 import '../styles/CourseEditor.css';
 
+
 class CourseEditor extends Component {
     constructor(props) {
         super(props);
