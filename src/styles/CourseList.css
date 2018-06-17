@@ -8,10 +8,6 @@
     background-color: #4285f4;
 }
 
-::-webkit-input-placeholder {
-    color: rgba(255,255,255,0.7) !important;
-}
-
 .navbar-brand {
     position: absolute;
     padding: 80px;
@@ -21,3 +17,4 @@
     color: red;
     padding-left: 20px;
 }
+

@@ -23,12 +23,15 @@ class LessonTabs extends Component {
     componentDidMount() {
         this.setModuleId(this.props.moduleId);
         this.setCourseId(this.props.courseId);
+        this.findAllLessonsForModule(this.props.courseId, this.props.moduleId);
     }
 
     componentWillReceiveProps(newProps){
-        this.setModuleId(newProps.moduleId);
-        this.setCourseId(newProps.courseId);
-        this.findAllLessonsForModule(newProps.courseId, newProps.moduleId);
+        if (this.props.moduleId !== newProps.moduleId || this.props.courseId !== newProps.courseId) {
+            this.setCourseId(newProps.courseId);
+            this.setModuleId(newProps.moduleId);
+            this.findAllLessonsForModule(newProps.courseId, newProps.moduleId);
+        }
     }
 
     setLessons(lessons) {

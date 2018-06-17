@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TopicServiceClient from "../services/TopicServiceClient";
+import TopicTabsItem from "../components/TopicTabsItem";
 
 class TopicTabs extends Component {
     constructor(props) {
@@ -25,13 +26,16 @@ class TopicTabs extends Component {
         this.setModuleId(this.props.moduleId);
         this.setCourseId(this.props.courseId);
         this.setLessonId(this.props.lessonId);
+        this.findAllTopicsForLesson(this.props.courseId, this.props.moduleId, this.props.lessonId);
     }
 
     componentWillReceiveProps(newProps){
-        this.setModuleId(newProps.moduleId);
-        this.setCourseId(newProps.courseId);
-        this.setLessonId(this.props.lessonId);
-        this.findAllTopicsForLesson(newProps.courseId, newProps.moduleId, newProps.lessonId);
+        if (this.props.moduleId !== newProps.moduleId || this.props.courseId !== newProps.courseId || this.props.lessonId !== newProps.lessonId) {
+            this.setModuleId(newProps.moduleId);
+            this.setCourseId(newProps.courseId);
+            this.setLessonId(newProps.lessonId);
+            this.findAllTopicsForLesson(newProps.courseId, newProps.moduleId, newProps.lessonId);
+        }
     }
 
     setTopics(topics) {
@@ -71,11 +75,7 @@ class TopicTabs extends Component {
     }
     renderListOfTopics() {
         let topics = this.state.topics.map((topic) =>
-            <li className="nav-item" key={topic.id}>
-                <a className="nav-link active" href="#">{topic.title}
-                    <span className="delete-lesson" onClick={() => this.deleteTopic(topic.id)}>X</span>
-                </a>
-            </li>
+            <TopicTabsItem courseId={this.state.courseId} moduleId={this.state.moduleId} lessonId={this.state.lessonId} topic={topic} key={topic.id} delete={this.deleteTopic}/>
         );
         return topics;
     }

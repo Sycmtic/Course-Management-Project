@@ -53,7 +53,7 @@ class CourseList extends Component {
 
     renderCourseRows() {
         let courses = null;
-        if (this.state.courses) {
+        if (this.state.courses.length > 0) {
             courses = this.state.courses.map((course) =>
                 <CourseRow course={course} key={course.id} delete={this.deleteCourse}/>
             );

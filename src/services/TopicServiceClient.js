@@ -33,6 +33,11 @@ class TopicServiceClient {
             .then(response => response.json());
     }
 
+    findTopicById(topicId) {
+        return fetch(`${TOPIC_URL}/${topicId}`)
+            .then(response => response.json());
+    }
+
     findAllTopicsForLesson(courseId, moduleId, lessonId) {
         return fetch(TOPIC_API_URL.replace('CID', courseId).replace('MID', moduleId).replace('LID', lessonId))
             .then(response => response.json());

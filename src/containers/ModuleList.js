@@ -20,11 +20,14 @@ class ModuleList extends Component {
 
     componentDidMount() {
         this.setCourseId(this.props.courseId);
+        this.findAllModulesForCourse(this.props.courseId);
     }
 
     componentWillReceiveProps(newProps){
-        this.setCourseId(newProps.courseId);
-        this.findAllModulesForCourse(newProps.courseId);
+        if (this.props.courseId !== newProps.courseId) {
+            this.setCourseId(newProps.courseId);
+            this.findAllModulesForCourse(newProps.courseId);
+        }
     }
 
     setModules(modules) {

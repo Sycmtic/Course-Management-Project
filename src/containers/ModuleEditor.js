@@ -8,7 +8,8 @@ class ModuleEditor extends Component {
     constructor(props) {
         super(props);
         this.moduleService = ModuleService.instance;
-        this.selectModule = this.selectModule.bind(this);
+        this.setModuleId = this.setModuleId.bind(this);
+        this.setModuleTitle = this.setModuleTitle.bind(this);
         this.state = {
             moduleId: '',
             title: ''
@@ -16,22 +17,28 @@ class ModuleEditor extends Component {
     }
 
     componentDidMount() {
+        this.setModuleId(this.props.match.params.moduleId);
         this.moduleService
             .findModuleById(this.props.match.params.moduleId)
             .then((module) => {
-                this.selectModule(module)
+                this.setModuleTitle(module)
             });
     }
     componentWillReceiveProps(newProps) {
-        this.moduleService
-            .findModuleById(newProps.match.params.moduleId)
-            .then((module) => {
-                this.selectModule(module)
-            });
+        if (this.props.match.params.moduleId !== newProps.match.params.moduleId) {
+            this.moduleService
+                .findModuleById(newProps.match.params.moduleId)
+                .then((module) => {
+                    this.setModuleTitle(module)
+                });
+        }
     }
 
-    selectModule(module) {
-        this.setState({moduleId: module.id});
+    setModuleId(moduleId) {
+        this.setState({moduleId: moduleId});
+    }
+
+    setModuleTitle(module) {
         this.setState({title: module.title});
     }
 
